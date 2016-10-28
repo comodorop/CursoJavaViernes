@@ -13,7 +13,6 @@ import operacionesAritmeticas.OperacionesAritmeticas;
  * @author pablo temporal
  */
 public class TestArreglos {
-
     public static void main(String[] args) {
         int calificaciones[] = {2323, 4345, 6757, 12, 35, 4, 34, 0, 34, 34, 2, 4, 36, 65, 74674, 5, 6, 43234, 23, 4, 42, 243};
         int[] x = new int[2];
@@ -22,5 +21,4 @@ public class TestArreglos {
         operaciones.obtenerMayor(calificaciones);
         operaciones.obtenerMenor(calificaciones);
     }
-
 }

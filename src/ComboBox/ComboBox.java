@@ -110,7 +110,7 @@ public class ComboBox extends javax.swing.JFrame {
                     .addComponent(lblCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -154,7 +154,6 @@ public class ComboBox extends javax.swing.JFrame {
 
     public void eliminar() {
         lstNombres.removeAll(lstNombres);
-//        lstNombres= new ArrayList<>();
         cmbNombres.removeAllItems();
     }
 
