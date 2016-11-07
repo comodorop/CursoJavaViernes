@@ -7,6 +7,8 @@ package Practicas;
 
 import Utilerias.LecturaInformacion;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -112,15 +114,30 @@ public class Archivos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String path = txtRuta.getText();
-        LecturaInformacion li = new LecturaInformacion();
-        for (Archivo arch : li.obtenerFormacion(path)) {
+     
+      JFileChooser chooser = new JFileChooser();
+      chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        int returnVal = chooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            txtRuta.setText(chooser.getSelectedFile().getAbsolutePath());
+            LecturaInformacion li = new LecturaInformacion();
+        for (Archivo arch : li.obtenerFormacion(chooser.getSelectedFile().getAbsolutePath())) {
             registros[0] = arch.getNombre();
             registros[1] = Boolean.toString(arch.isEscritura());
             registros[2] = arch.getTamaño();
             modelo.addRow(registros);
         }
-
+            
+            
+        }
+//        String path = txtRuta.getText();
+//        LecturaInformacion li = new LecturaInformacion();
+//        for (Archivo arch : li.obtenerFormacion(path)) {
+//            registros[0] = arch.getNombre();
+//            registros[1] = Boolean.toString(arch.isEscritura());
+//            registros[2] = arch.getTamaño();
+//            modelo.addRow(registros);
+//        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -143,7 +160,6 @@ public class Archivos extends javax.swing.JFrame {
                 modelo.removeRow(0);
             }
         } catch (Exception e) {
-
         }
     }
 
